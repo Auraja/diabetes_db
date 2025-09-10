@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 # Load the trained model
 model = xgb.Booster()
-model.load_model(r"C:\Users\Derajat\Downloads\Diabetes\xgboost_model.pkl")  # Update path to your model
+model.load_model("xgboost_model.pkl")  # Update path to your model
 
 # SQLite database setup
-DATABASE_PATH = r'C:\Users\Derajat\Downloads\Diabetes\model.sql'  # Path to SQLite database
+DATABASE_PATH = 'model.sql'  # Path to SQLite database
 
 def init_db():
     # Initialize SQLite database from the SQL dump
@@ -86,3 +86,4 @@ def predict_from_db(id):
 if __name__ == '__main__':
     init_db()  # Initialize the SQLite database with the SQL dump
     app.run(debug=True, host='0.0.0.0', port=6968)
+
